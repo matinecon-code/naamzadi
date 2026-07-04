@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>دعوت بله برون</title>
 
 <style>
@@ -15,19 +17,19 @@ box-sizing:border-box;
 
 body{
 background:#f7f0e3;
-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
+height:100vh;
 overflow:hidden;
 font-family:tahoma;
 }
 
 .container{
 position:relative;
-width:420px;
+width:430px;
 max-width:95vw;
-height:720px;
+height:760px;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -39,8 +41,8 @@ align-items:center;
 position:absolute;
 width:100%;
 cursor:pointer;
-z-index:5;
-transition:1s;
+z-index:10;
+transition:1.2s;
 }
 
 .envelope img{
@@ -54,8 +56,8 @@ display:block;
 position:absolute;
 width:92%;
 opacity:0;
-transform:translateY(250px) scale(.9);
-transition:2s;
+transform:translateY(250px) scale(.85);
+transition:all 2s ease;
 z-index:1;
 }
 
@@ -66,24 +68,7 @@ border-radius:22px;
 box-shadow:0 15px 40px rgba(0,0,0,.18);
 }
 
-/* دکمه لوکیشن */
-
-.location{
-position:absolute;
-bottom:28px;
-left:50%;
-transform:translateX(-50%);
-background:#c89c3c;
-color:white;
-padding:10px 18px;
-border-radius:50px;
-text-decoration:none;
-font-size:14px;
-box-shadow:0 5px 15px rgba(0,0,0,.2);
-display:none;
-}
-
-/* وضعیت باز */
+/* بعد از باز شدن */
 
 .open .envelope{
 opacity:0;
@@ -94,37 +79,66 @@ transform:scale(.9);
 .open .card{
 opacity:1;
 transform:translateY(0) scale(1);
-z-index:10;
+z-index:20;
 }
 
-.open .location{
-display:block;
+/* دکمه لوکیشن */
+
+.location-btn{
+position:absolute;
+bottom:22px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+align-items:center;
+gap:8px;
+padding:12px 22px;
+background:linear-gradient(135deg,#d9b45b,#b88a2e);
+color:white;
+text-decoration:none;
+border-radius:50px;
+font-size:15px;
+font-weight:bold;
+box-shadow:0 8px 20px rgba(0,0,0,.18);
+opacity:0;
+transition:.8s;
 }
 
-/* درخشش */
+.open .location-btn{
+opacity:1;
+}
+
+.location-icon{
+font-size:20px;
+}
+
+/* ذرات طلایی */
 
 .sparkle{
 position:absolute;
 width:6px;
 height:6px;
-background:#ffd46b;
+background:#f5cf6d;
 border-radius:50%;
-animation:float 4s infinite;
-opacity:.8;
+animation:float 4s linear infinite;
 }
 
 @keyframes float{
+
 0%{
-transform:translateY(0);
 opacity:0;
+transform:translateY(0);
 }
+
 50%{
 opacity:1;
 }
+
 100%{
-transform:translateY(-250px);
 opacity:0;
+transform:translateY(-250px);
 }
+
 }
 
 </style>
@@ -135,19 +149,25 @@ opacity:0;
 <div class="container" id="container">
 
 <div class="envelope" id="envelope">
-<img src="envelope.png">
+<img src="envelope.png" alt="">
 </div>
 
-<div class="card" id="card">
-<img src="card.png">
+<div class="card">
+<img src="card.png" alt="">
+</div>
 
-<a class="location"
+<a
+class="location-btn"
 href="https://nshn.ir/6a_bvsokWx41T1"
 target="_blank">
-📍 مشاهده مسیر در نشان
-</a>
 
-</div>
+<span class="location-icon">📍</span>
+
+<span>
+نشانی مراسم
+</span>
+
+</a>
 
 <audio id="music">
 <source src="music.mp3" type="audio/mpeg">
@@ -157,30 +177,34 @@ target="_blank">
 
 <script>
 
-const envelope = document.getElementById("envelope");
-const container = document.getElementById("container");
-const music = document.getElementById("music");
+const envelope=document.getElementById("envelope");
+const container=document.getElementById("container");
+const music=document.getElementById("music");
 
-envelope.addEventListener("click", async ()=>{
+envelope.addEventListener("click",async()=>{
 
 container.classList.add("open");
 
 try{
-music.currentTime = 2;
+
+music.currentTime=2;
 await music.play();
-}catch(err){
-console.log(err);
+
+}catch(error){
+
+console.log(error);
+
 }
 
 createSparkles();
 
 });
 
-music.addEventListener("timeupdate", ()=>{
+music.addEventListener("timeupdate",()=>{
 
-if(music.currentTime >= 20){
+if(music.currentTime>=20){
 
-music.currentTime = 2;
+music.currentTime=2;
 music.play();
 
 }
@@ -191,15 +215,15 @@ function createSparkles(){
 
 for(let i=0;i<40;i++){
 
-let s = document.createElement("div");
+let s=document.createElement("div");
 
 s.className="sparkle";
 
-s.style.left=Math.random()*400+"px";
+s.style.left=Math.random()*430+"px";
 
-s.style.bottom=Math.random()*100+"px";
+s.style.bottom=Math.random()*120+"px";
 
-s.style.animationDelay=Math.random()*2+"s";
+s.style.animationDelay=Math.random()*3+"s";
 
 container.appendChild(s);
 
