@@ -28,15 +28,33 @@ a{text-decoration:none;color:#8a6a1f}
 <audio id="music" preload="auto"><source src="music.mp3" type="audio/mpeg"></audio>
 </div>
 <script>
-const wrap=document.getElementById('wrap');
-const env=document.getElementById('envelope');
-const music=document.getElementById('music');
-env.onclick=()=>{
- wrap.classList.add('open');
- try{music.currentTime=2;music.play();}catch(e){}
-};
-music.addEventListener('timeupdate',()=>{
- if(music.currentTime>=20){music.currentTime=2;}
+const wrap = document.getElementById('wrap');
+const env = document.getElementById('envelope');
+const music = document.getElementById('music');
+
+env.addEventListener('click', async () => {
+
+    wrap.classList.add('open');
+
+    try {
+        music.currentTime = 2;
+        await music.play();
+    } catch(err) {
+        console.log("Audio error:", err);
+    }
+
+});
+
+music.addEventListener('timeupdate', () => {
+
+    if (music.currentTime >= 20) {
+
+        music.pause();
+        music.currentTime = 2;
+        music.play();
+
+    }
+
 });
 </script>
 </body>
