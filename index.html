@@ -6,12 +6,12 @@
 <title>دعوت بله برون</title>
 <style>
 body{margin:0;background:#f7f0e3;display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:tahoma}
-.wrap{text-align:center;max-width:500px}
+.wrap{text-align:center;max-width:500px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 #envelope{width:100%;cursor:pointer;transition:all 1.2s}
 #card{width:100%;display:none;opacity:0;transform:translateY(250px);transition:all 2s}
 #card{width:100%;display:none;opacity:0;transition:all 2s;}
 .open #card{display:block;opacity:1;}
-.open #envelope{opacity:0}
+.open #envelope{display:none;}
 .open #card{display:block;opacity:1;transform:translateY(0)}
 .loc{display:none;margin-top:10px}
 .open .loc{display:block}
@@ -25,7 +25,7 @@ a{text-decoration:none;color:#8a6a1f}
 <div class="loc">
 <a href="https://nshn.ir/6a_bvsokWx41T1" target="_blank">📍 سعادت آباد، بلوار دریا، بعد از پاکنژاد، شکوفان ۲، بهاران ۱، پلاک ۲۰۳، طبقه ۳</a>
 </div>
-<audio id="music" src="music.mp3"></audio>
+<audio id="music" preload="auto"><source src="music.mp3" type="audio/mpeg"></audio>
 </div>
 <script>
 const wrap=document.getElementById('wrap');
