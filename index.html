@@ -31,8 +31,8 @@ const wrap=document.getElementById('wrap');
 const music=document.getElementById('music');
 env.onclick=()=>{
  wrap.classList.add('show');
- music.currentTime=2;
- music.play();
+ music.currentTime = 2;
+music.play().catch(function(error){console.log(error);});
 };
 music.addEventListener('timeupdate',()=>{
  if(music.currentTime>=20){music.currentTime=2;music.play();}
