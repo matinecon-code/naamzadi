@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دعوت بله برون</title>
+<style>
+body{margin:0;background:#f7f0e3;font-family:tahoma;display:flex;justify-content:center;align-items:center;min-height:100vh;overflow:hidden}
+.wrap{text-align:center}
+#env{max-width:420px;width:90%;cursor:pointer;transition:all 1s}
+#card{max-width:420px;width:90%;display:none;transform:translateY(250px);opacity:0;transition:all 2s}
+.show #env{opacity:0;pointer-events:none}
+.show #card{display:block;opacity:1;transform:translateY(0)}
+.location{display:none;margin-top:12px;font-size:18px}
+.show .location{display:block}
+a{text-decoration:none;color:#7a5b19}
+</style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+<img id="env" src="envelope.png" alt="envelope">
+<img id="card" src="card.png" alt="card">
+<div class="location">
+<a href="https://nshn.ir/6a_bvsokWx41T1" target="_blank">📍 سعادت آباد، بلوار دریا، بعد از پاکنژاد - شکوفان ۲، بهاران ۱، پلاک ۲۰۳، طبقه ۳</a>
+</div>
+<audio id="music" src="music.mp3"></audio>
+</div>
+<script>
+const env=document.getElementById('env');
+const wrap=document.getElementById('wrap');
+const music=document.getElementById('music');
+env.onclick=()=>{
+ wrap.classList.add('show');
+ music.currentTime=2;
+ music.play();
+};
+music.addEventListener('timeupdate',()=>{
+ if(music.currentTime>=20){music.currentTime=2;music.play();}
+});
+</script>
+</body>
+</html>
