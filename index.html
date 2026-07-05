@@ -84,18 +84,18 @@ transform:translateY(-35px) scale(1);
 z-index:20;
 }
 
-/* ناحیه کلیک روی آیکون داخل card.png */
+/* ناحیه کلیک روی آیکون لوکیشن داخل card.png */
 
 .location-link{
 
 position:absolute;
 
-/* محل آیکون روی کارت */
-right:54px;
-bottom:250px;
+/* محل دقیق آیکون لوکیشن روی کارت */
+right:48px;
+bottom:242px;
 
-width:34px;
-height:34px;
+width:42px;
+height:42px;
 
 z-index:60;
 
@@ -113,7 +113,7 @@ opacity:0;
 opacity:1;
 }
 
-/* درخشش طلایی روی آیکون */
+/* درخشش طلایی دور آیکون */
 
 .location-link::after{
 
@@ -124,16 +124,17 @@ position:absolute;
 top:50%;
 left:50%;
 
-width:24px;
-height:24px;
+width:34px;
+height:34px;
 
 transform:translate(-50%,-50%);
 
 border-radius:50%;
 
 box-shadow:
-0 0 8px rgba(255,215,90,.75),
-0 0 16px rgba(212,165,40,.45);
+0 0 10px rgba(255,215,90,.9),
+0 0 20px rgba(212,165,40,.65),
+0 0 30px rgba(255,215,90,.45);
 
 animation:locationGlow 2.2s ease-in-out infinite;
 
