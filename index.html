@@ -16,7 +16,7 @@ box-sizing:border-box;
 }
 
 body{
-background:#f7f0e3;
+background:#f8f4ea;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -39,10 +39,10 @@ align-items:center;
 
 .envelope{
 position:absolute;
-width:100%;
+width:92%;
 cursor:pointer;
 z-index:10;
-transition:1.2s;
+transition:1.2s ease;
 }
 
 .envelope img{
@@ -54,9 +54,9 @@ display:block;
 
 .card{
 position:absolute;
-width:92%;
+width:88%;
 opacity:0;
-transform:translateY(250px) scale(.85);
+transform:translateY(220px) scale(.88);
 transition:all 2s ease;
 z-index:1;
 }
@@ -66,8 +66,8 @@ width:100%;
 display:block;
 border-radius:22px;
 box-shadow:
-0 15px 40px rgba(0,0,0,.18),
-0 0 30px rgba(212,175,55,.15);
+0 15px 40px rgba(0,0,0,.15),
+0 0 30px rgba(212,175,55,.12);
 }
 
 /* باز شدن */
@@ -80,7 +80,7 @@ transform:scale(.9);
 
 .open .card{
 opacity:1;
-transform:translateY(0) scale(1);
+transform:translateY(-35px) scale(1);
 z-index:20;
 }
 
@@ -90,11 +90,12 @@ z-index:20;
 
 position:absolute;
 
-right:42px;
-bottom:150px;
+/* کنار نشانی روی کارت */
+right:58px;
+bottom:118px;
 
-width:40px;
-height:40px;
+width:28px;
+height:28px;
 
 display:flex;
 align-items:center;
@@ -111,40 +112,33 @@ transition:.6s ease;
 }
 
 .open .location-icon-btn{
-
 opacity:1;
-
 }
 
 .location-icon-btn svg{
 
+width:28px;
+height:28px;
+
 filter:
-drop-shadow(0 0 4px rgba(255,215,90,.9))
-drop-shadow(0 0 10px rgba(212,165,40,.5));
+drop-shadow(0 0 3px rgba(255,215,90,.9))
+drop-shadow(0 0 8px rgba(212,165,40,.5));
 
 }
 
 .location-icon-btn:hover{
-
-transform:scale(1.15);
-
+transform:scale(1.1);
 }
 
 /* ذرات طلایی */
 
 .sparkle{
-
 position:absolute;
-
 width:6px;
 height:6px;
-
-background:#f5cf6d;
-
+background:#e7c567;
 border-radius:50%;
-
 animation:float 4s linear infinite;
-
 }
 
 @keyframes float{
@@ -173,12 +167,12 @@ transform:translateY(-250px);
 <div class="container" id="container">
 
 <div class="envelope" id="envelope">
-<img src="envelope.png" alt="">
+<img src="envelope.png" alt="پاکت دعوت">
 </div>
 
 <div class="card">
 
-<img src="card.png" alt="">
+<img src="card.png" alt="کارت دعوت">
 
 <a
 class="location-icon-btn"
@@ -188,9 +182,7 @@ title="لوکیشن مراسم">
 
 <svg
 xmlns="http://www.w3.org/2000/svg"
-viewBox="0 0 24 24"
-width="34"
-height="34">
+viewBox="0 0 24 24">
 
 <defs>
 
@@ -201,9 +193,9 @@ y1="0%"
 x2="100%"
 y2="100%">
 
-<stop offset="0%" stop-color="#f7d774"/>
-<stop offset="50%" stop-color="#d8a93c"/>
-<stop offset="100%" stop-color="#b9851b"/>
+<stop offset="0%" stop-color="#ffe08a"/>
+<stop offset="45%" stop-color="#dcb44a"/>
+<stop offset="100%" stop-color="#b88418"/>
 
 </linearGradient>
 
@@ -244,7 +236,7 @@ container.classList.add("open");
 
 try{
 
-music.currentTime=2;
+music.currentTime = 2;
 
 await music.play();
 
@@ -263,9 +255,9 @@ music.addEventListener(
 "timeupdate",
 ()=>{
 
-if(music.currentTime>=20){
+if(music.currentTime >= 20){
 
-music.currentTime=2;
+music.currentTime = 2;
 
 music.play();
 
