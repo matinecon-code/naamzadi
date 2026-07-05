@@ -42,7 +42,7 @@ position:absolute;
 width:92%;
 cursor:pointer;
 z-index:10;
-transition:1.2s ease;
+transition:all 1.2s ease;
 }
 
 .envelope img{
@@ -59,6 +59,9 @@ opacity:0;
 transform:translateY(220px) scale(.88);
 transition:all 2s ease;
 z-index:1;
+
+/* مهم */
+position:relative;
 }
 
 .card img{
@@ -84,36 +87,29 @@ transform:translateY(-35px) scale(1);
 z-index:20;
 }
 
-/* ناحیه کلیک روی آیکون داخل card.png */
+/* ناحیه کلیک روی آیکون لوکیشن داخل تصویر */
 
 .location-link{
 
 position:absolute;
 
-/* محل آیکون روی کارت */
-right:58px;
+/* محل تقریبی آیکون روی کارت */
+right:52px;
 bottom:118px;
 
-width:32px;
-height:32px;
+width:34px;
+height:34px;
 
-z-index:60;
+z-index:100;
 
 cursor:pointer;
 
-background:transparent;
-
 border-radius:50%;
 
-opacity:0;
-
-}
-
-.open .location-link{
 opacity:1;
 }
 
-/* درخشش طلایی روی آیکون */
+/* هاله طلایی */
 
 .location-link::after{
 
@@ -132,10 +128,10 @@ transform:translate(-50%,-50%);
 border-radius:50%;
 
 box-shadow:
-0 0 8px rgba(255,215,90,.75),
+0 0 8px rgba(255,215,90,.8),
 0 0 16px rgba(212,165,40,.45);
 
-animation:locationGlow 2.2s ease-in-out infinite;
+animation:locationGlow 2s ease-in-out infinite;
 
 pointer-events:none;
 
@@ -144,7 +140,7 @@ pointer-events:none;
 @keyframes locationGlow{
 
 0%{
-opacity:.6;
+opacity:.5;
 }
 
 50%{
@@ -152,7 +148,7 @@ opacity:1;
 }
 
 100%{
-opacity:.6;
+opacity:.5;
 }
 
 }
@@ -205,7 +201,7 @@ transform:translateY(-250px);
 class="location-link"
 href="https://nshn.ir/6a_bvsokWx41T1"
 target="_blank"
-title="لوکیشن مراسم">
+title="موقعیت مراسم">
 </a>
 
 </div>
@@ -218,70 +214,47 @@ title="لوکیشن مراسم">
 
 <script>
 
-const envelope =
-document.getElementById("envelope");
+const envelope = document.getElementById("envelope");
+const container = document.getElementById("container");
+const music = document.getElementById("music");
 
-const container =
-document.getElementById("container");
-
-const music =
-document.getElementById("music");
-
-envelope.addEventListener(
-"click",
-async ()=>{
+envelope.addEventListener("click", async ()=>{
 
 container.classList.add("open");
 
 try{
-
 music.currentTime = 2;
-
 await music.play();
-
 }catch(error){
-
 console.log(error);
-
 }
 
 createSparkles();
 
-}
-);
+});
 
-music.addEventListener(
-"timeupdate",
-()=>{
+music.addEventListener("timeupdate",()=>{
 
 if(music.currentTime >= 20){
 
 music.currentTime = 2;
-
 music.play();
 
 }
 
-}
-);
+});
 
 function createSparkles(){
 
 for(let i=0;i<40;i++){
 
-let s =
-document.createElement("div");
+let s = document.createElement("div");
 
-s.className="sparkle";
+s.className = "sparkle";
 
-s.style.left =
-Math.random()*430+"px";
-
-s.style.bottom =
-Math.random()*120+"px";
-
-s.style.animationDelay =
-Math.random()*3+"s";
+s.style.left = Math.random()*430+"px";
+s.style.bottom = Math.random()*120+"px";
+s.style.animationDelay = Math.random()*3+"s";
 
 container.appendChild(s);
 
