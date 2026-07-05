@@ -65,10 +65,12 @@ z-index:1;
 width:100%;
 display:block;
 border-radius:22px;
-box-shadow:0 15px 40px rgba(0,0,0,.18);
+box-shadow:
+0 15px 40px rgba(0,0,0,.18),
+0 0 30px rgba(212,175,55,.15);
 }
 
-/* بعد از باز شدن */
+/* باز شدن */
 
 .open .envelope{
 opacity:0;
@@ -82,45 +84,67 @@ transform:translateY(0) scale(1);
 z-index:20;
 }
 
-/* دکمه لوکیشن */
+/* آیکون لوکیشن */
 
-.location-btn{
+.location-icon-btn{
+
 position:absolute;
-bottom:22px;
-left:50%;
-transform:translateX(-50%);
+
+right:42px;
+bottom:150px;
+
+width:40px;
+height:40px;
+
 display:flex;
 align-items:center;
-gap:8px;
-padding:12px 22px;
-background:linear-gradient(135deg,#d9b45b,#b88a2e);
-color:white;
+justify-content:center;
+
 text-decoration:none;
-border-radius:50px;
-font-size:15px;
-font-weight:bold;
-box-shadow:0 8px 20px rgba(0,0,0,.18);
+
+z-index:50;
+
 opacity:0;
-transition:.8s;
+
+transition:.6s ease;
+
 }
 
-.open .location-btn{
+.open .location-icon-btn{
+
 opacity:1;
+
 }
 
-.location-icon{
-font-size:20px;
+.location-icon-btn svg{
+
+filter:
+drop-shadow(0 0 4px rgba(255,215,90,.9))
+drop-shadow(0 0 10px rgba(212,165,40,.5));
+
+}
+
+.location-icon-btn:hover{
+
+transform:scale(1.15);
+
 }
 
 /* ذرات طلایی */
 
 .sparkle{
+
 position:absolute;
+
 width:6px;
 height:6px;
+
 background:#f5cf6d;
+
 border-radius:50%;
+
 animation:float 4s linear infinite;
+
 }
 
 @keyframes float{
@@ -153,21 +177,47 @@ transform:translateY(-250px);
 </div>
 
 <div class="card">
+
 <img src="card.png" alt="">
-</div>
 
 <a
-class="location-btn"
+class="location-icon-btn"
 href="https://nshn.ir/6a_bvsokWx41T1"
-target="_blank">
+target="_blank"
+title="لوکیشن مراسم">
 
-<span class="location-icon">📍</span>
+<svg
+xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 24 24"
+width="34"
+height="34">
 
-<span>
-نشانی مراسم
-</span>
+<defs>
+
+<linearGradient
+id="goldGradient"
+x1="0%"
+y1="0%"
+x2="100%"
+y2="100%">
+
+<stop offset="0%" stop-color="#f7d774"/>
+<stop offset="50%" stop-color="#d8a93c"/>
+<stop offset="100%" stop-color="#b9851b"/>
+
+</linearGradient>
+
+</defs>
+
+<path
+fill="url(#goldGradient)"
+d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/>
+
+</svg>
 
 </a>
+
+</div>
 
 <audio id="music">
 <source src="music.mp3" type="audio/mpeg">
@@ -177,17 +227,25 @@ target="_blank">
 
 <script>
 
-const envelope=document.getElementById("envelope");
-const container=document.getElementById("container");
-const music=document.getElementById("music");
+const envelope =
+document.getElementById("envelope");
 
-envelope.addEventListener("click",async()=>{
+const container =
+document.getElementById("container");
+
+const music =
+document.getElementById("music");
+
+envelope.addEventListener(
+"click",
+async ()=>{
 
 container.classList.add("open");
 
 try{
 
 music.currentTime=2;
+
 await music.play();
 
 }catch(error){
@@ -198,32 +256,41 @@ console.log(error);
 
 createSparkles();
 
-});
+}
+);
 
-music.addEventListener("timeupdate",()=>{
+music.addEventListener(
+"timeupdate",
+()=>{
 
 if(music.currentTime>=20){
 
 music.currentTime=2;
+
 music.play();
 
 }
 
-});
+}
+);
 
 function createSparkles(){
 
 for(let i=0;i<40;i++){
 
-let s=document.createElement("div");
+let s =
+document.createElement("div");
 
 s.className="sparkle";
 
-s.style.left=Math.random()*430+"px";
+s.style.left=
+Math.random()*430+"px";
 
-s.style.bottom=Math.random()*120+"px";
+s.style.bottom=
+Math.random()*120+"px";
 
-s.style.animationDelay=Math.random()*3+"s";
+s.style.animationDelay=
+Math.random()*3+"s";
 
 container.appendChild(s);
 
