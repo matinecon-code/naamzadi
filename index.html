@@ -84,28 +84,30 @@ transform:translateY(-35px) scale(1);
 z-index:20;
 }
 
-/* ناحیه کلیک روی آیکون لوکیشن داخل تصویر */
+/* آیکون لوکیشن طلایی */
 
 .location-link{
 
 position:absolute;
 
-/* محل دقیق آیکون لوکیشن روی کارت */
-right:55px;
-bottom:178px;
+/* محل قرارگیری روی آیکون کنار نشانی */
+right:50px;
+bottom:172px;
 
-width:30px;
-height:30px;
+width:34px;
+height:34px;
 
-z-index:100;
+display:flex;
+align-items:center;
+justify-content:center;
 
-cursor:pointer;
+text-decoration:none;
 
-background:transparent;
-
-border-radius:50%;
+z-index:120;
 
 opacity:0;
+
+transition:.6s;
 
 }
 
@@ -113,46 +115,31 @@ opacity:0;
 opacity:1;
 }
 
-/* درخشش طلایی روی همان آیکون */
+.location-link svg{
 
-.location-link::after{
+width:34px;
+height:34px;
 
-content:"";
+filter:
+drop-shadow(0 0 4px rgba(255,220,120,.9))
+drop-shadow(0 0 10px rgba(212,175,55,.8));
 
-position:absolute;
-
-top:50%;
-left:50%;
-
-width:18px;
-height:18px;
-
-transform:translate(-50%,-50%);
-
-border-radius:50%;
-
-box-shadow:
-0 0 6px rgba(255,215,90,.9),
-0 0 12px rgba(212,165,40,.7);
-
-animation:locationGlow 2s ease-in-out infinite;
-
-pointer-events:none;
+animation:goldPulse 2s ease-in-out infinite;
 
 }
 
-@keyframes locationGlow{
+@keyframes goldPulse{
 
 0%{
-opacity:.55;
+transform:scale(1);
 }
 
 50%{
-opacity:1;
+transform:scale(1.08);
 }
 
 100%{
-opacity:.55;
+transform:scale(1);
 }
 
 }
@@ -206,6 +193,32 @@ class="location-link"
 href="https://nshn.ir/6a_bvsokWx41T1"
 target="_blank"
 title="مشاهده لوکیشن مراسم">
+
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+
+<linearGradient id="goldPin" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#fff6c7"/>
+<stop offset="25%" stop-color="#ffe08a"/>
+<stop offset="60%" stop-color="#d4af37"/>
+<stop offset="100%" stop-color="#9b6b16"/>
+</linearGradient>
+
+</defs>
+
+<path
+fill="url(#goldPin)"
+d="M12 2C8.13 2 5 5.13 5 9c0 5.5 7 13 7 13s7-7.5 7-13c0-3.87-3.13-7-7-7z"/>
+
+<circle
+cx="12"
+cy="9"
+r="3"
+fill="#fff8dd"/>
+
+</svg>
+
 </a>
 
 </div>
