@@ -84,50 +84,29 @@ transform:translateY(-35px) scale(1);
 z-index:20;
 }
 
-/* آیکون لوکیشن */
+/* ناحیه کلیک روی آیکون لوکیشن موجود در تصویر */
 
-.location-icon-btn{
+.location-link{
 
 position:absolute;
 
-/* کنار نشانی روی کارت */
+/* محل آیکون چاپ شده روی کارت */
 right:58px;
 bottom:118px;
 
-width:28px;
-height:28px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-text-decoration:none;
+width:32px;
+height:32px;
 
 z-index:50;
 
 opacity:0;
 
-transition:.6s ease;
+cursor:pointer;
 
 }
 
-.open .location-icon-btn{
+.open .location-link{
 opacity:1;
-}
-
-.location-icon-btn svg{
-
-width:28px;
-height:28px;
-
-filter:
-drop-shadow(0 0 3px rgba(255,215,90,.9))
-drop-shadow(0 0 8px rgba(212,165,40,.5));
-
-}
-
-.location-icon-btn:hover{
-transform:scale(1.1);
 }
 
 /* ذرات طلایی */
@@ -175,38 +154,10 @@ transform:translateY(-250px);
 <img src="card.png" alt="کارت دعوت">
 
 <a
-class="location-icon-btn"
+class="location-link"
 href="https://nshn.ir/6a_bvsokWx41T1"
 target="_blank"
 title="لوکیشن مراسم">
-
-<svg
-xmlns="http://www.w3.org/2000/svg"
-viewBox="0 0 24 24">
-
-<defs>
-
-<linearGradient
-id="goldGradient"
-x1="0%"
-y1="0%"
-x2="100%"
-y2="100%">
-
-<stop offset="0%" stop-color="#ffe08a"/>
-<stop offset="45%" stop-color="#dcb44a"/>
-<stop offset="100%" stop-color="#b88418"/>
-
-</linearGradient>
-
-</defs>
-
-<path
-fill="url(#goldGradient)"
-d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/>
-
-</svg>
-
 </a>
 
 </div>
