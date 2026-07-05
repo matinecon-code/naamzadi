@@ -84,29 +84,77 @@ transform:translateY(-35px) scale(1);
 z-index:20;
 }
 
-/* ناحیه کلیک روی آیکون لوکیشن موجود در تصویر */
+/* ناحیه کلیک روی آیکون داخل card.png */
 
 .location-link{
 
 position:absolute;
 
-/* محل آیکون چاپ شده روی کارت */
+/* محل آیکون روی کارت */
 right:58px;
 bottom:118px;
 
 width:32px;
 height:32px;
 
-z-index:50;
-
-opacity:0;
+z-index:60;
 
 cursor:pointer;
+
+background:transparent;
+
+border-radius:50%;
+
+opacity:0;
 
 }
 
 .open .location-link{
 opacity:1;
+}
+
+/* درخشش طلایی روی آیکون */
+
+.location-link::after{
+
+content:"";
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+width:24px;
+height:24px;
+
+transform:translate(-50%,-50%);
+
+border-radius:50%;
+
+box-shadow:
+0 0 8px rgba(255,215,90,.75),
+0 0 16px rgba(212,165,40,.45);
+
+animation:locationGlow 2.2s ease-in-out infinite;
+
+pointer-events:none;
+
+}
+
+@keyframes locationGlow{
+
+0%{
+opacity:.6;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+opacity:.6;
+}
+
 }
 
 /* ذرات طلایی */
@@ -226,13 +274,13 @@ document.createElement("div");
 
 s.className="sparkle";
 
-s.style.left=
+s.style.left =
 Math.random()*430+"px";
 
-s.style.bottom=
+s.style.bottom =
 Math.random()*120+"px";
 
-s.style.animationDelay=
+s.style.animationDelay =
 Math.random()*3+"s";
 
 container.appendChild(s);
