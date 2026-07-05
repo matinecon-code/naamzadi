@@ -91,11 +91,11 @@ z-index:20;
 position:absolute;
 
 /* محل قرارگیری روی آیکون کنار نشانی */
-right:50px;
+right:40px;
 bottom:172px;
 
-width:34px;
-height:34px;
+width:24px;
+height:24px;
 
 display:flex;
 align-items:center;
@@ -117,29 +117,29 @@ opacity:1;
 
 .location-link svg{
 
-width:34px;
-height:34px;
+width:24px;
+height:24px;
 
 filter:
-drop-shadow(0 0 4px rgba(255,220,120,.9))
-drop-shadow(0 0 10px rgba(212,175,55,.8));
+drop-shadow(0 0 1px rgba(255,245,210,.45))
+drop-shadow(0 0 4px rgba(184,140,50,.22));
 
-animation:goldPulse 2s ease-in-out infinite;
+animation:goldPulse 2.5s ease-in-out infinite;
 
 }
 
 @keyframes goldPulse{
 
 0%{
-transform:scale(1);
+opacity:.88;
 }
 
 50%{
-transform:scale(1.08);
+opacity:1;
 }
 
 100%{
-transform:scale(1);
+opacity:.88;
 }
 
 }
@@ -199,28 +199,28 @@ title="مشاهده لوکیشن مراسم">
 <defs>
 
 <linearGradient id="goldPin" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" stop-color="#fff6c7"/>
-<stop offset="25%" stop-color="#ffe08a"/>
-<stop offset="60%" stop-color="#d4af37"/>
-<stop offset="100%" stop-color="#9b6b16"/>
+<stop offset="0%" stop-color="#f4e7b5"/>
+<stop offset="25%" stop-color="#dcc27a"/>
+<stop offset="55%" stop-color="#c8a85a"/>
+<stop offset="85%" stop-color="#a98232"/>
+<stop offset="100%" stop-color="#8f6a21"/>
 </linearGradient>
 
 </defs>
 
 <path
 fill="url(#goldPin)"
-d="M12 2C8.13 2 5 5.13 5 9c0 5.5 7 13 7 13s7-7.5 7-13c0-3.87-3.13-7-7-7z"/>
+d="M12 2C8.1 2 5 5.1 5 9c0 5.1 7 13 7 13s7-7.9 7-13c0-3.9-3.1-7-7-7z"/>
 
 <circle
 cx="12"
 cy="9"
-r="3"
-fill="#fff8dd"/>
+r="2.4"
+fill="#f9f1d7"/>
 
 </svg>
 
 </a>
-
 </div>
 
 <audio id="music">
